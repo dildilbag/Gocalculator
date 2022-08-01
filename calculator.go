@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+)
 
 func main() {
 
@@ -38,37 +41,48 @@ func main() {
 		var division = h / j
 		fmt.Println("Your Division is =", division)
 	*/
-	var num1 int
-	var num2 int
+	for true {
+		var num1 int
+		var num2 int
 
-	fmt.Println("Give your number Here :")
-	fmt.Scan(&num1, &num2)
+		fmt.Println("Give your number Here :")
+		n, err := fmt.Scan(&num1, &num2)
+		if err != nil {
+			fmt.Printf("THis is %c\n", n)
+			log.Fatal(err)
+			break
+		}
 
-	addition := num1 + num2
-	sub := num1 - num2
-	multi := num1 * num2
-	div := num1 / num2
+		addition := num1 + num2
+		sub := num1 - num2
+		multi := num1 * num2
+		div := num1 / num2
 
-	fmt.Println("Choose your Operator : +, -, *, / ")
+		fmt.Println("Choose your Operator : +, -, *, / ")
 
-	var operator string
-	fmt.Scan(&operator)
+		var operator string
+		fmt.Scan(&operator)
 
-	switch operator {
-	case "+":
-		fmt.Println("Here is your Ans :", addition)
-	case "-":
-		fmt.Println("Here is your Ans :", sub)
-	case "*":
-		fmt.Println("Here is your Ans :", multi)
-	case "/":
-		fmt.Println("Here is your Ans :", div)
+		switch operator {
+		case "+":
+			fmt.Println("Here is your Ans :", addition)
+		case "-":
+			fmt.Println("Here is your Ans :", sub)
+		case "*":
+			fmt.Println("Here is your Ans :", multi)
+		case "/":
+			fmt.Println("Here is your Ans :", div)
 
-	default:
-		fmt.Println("Give Please write number")
+		default:
+			fmt.Println("Give Please Right number")
+		}
+		var next string
+		fmt.Println("If you want continue ja otherwise  no")
+		fmt.Scan(&next)
+		if next != "ja" {
+			break
+
+		}
 	}
-	var opt string
-	fmt.Println("Do you want Exit or continue")
-	fmt.Scan(&opt)
 
 }
